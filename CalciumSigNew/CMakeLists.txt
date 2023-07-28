@@ -1,8 +1,6 @@
 ﻿cmake_minimum_required (VERSION 3.8)
 project(CalciumSig)
 
-set(BASE_PATH  ${CMAKE_SOURCE_DIR}/CalciumSigNew)
-
 set(THIRD_PARTY_PATH  ${CMAKE_SOURCE_DIR}/thirdParty)
 
 set(GLFW_INCLUDES  ${THIRD_PARTY_PATH}/glfw/glfw/include)
@@ -35,12 +33,12 @@ include_directories(${OPENGL_INCLUDE_DIRS})
 set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
-add_subdirectory( ${THIRD_PARTY_PATH}/glfw/glfw ${BASE_PATH}/out/glfw)
+add_subdirectory( ${THIRD_PARTY_PATH}/glfw/glfw ${CMAKE_SOURCE_DIR}/out/glfw)
 
 #glad
-add_subdirectory( ${THIRD_PARTY_PATH}/glad/glad ${BASE_PATH}/out/glad)
+add_subdirectory( ${THIRD_PARTY_PATH}/glad/glad ${CMAKE_SOURCE_DIR}/out/glad)
 
 #imgui
-add_subdirectory( ${THIRD_PARTY_PATH}/imgui/imgui ${BASE_PATH}/out/imgui)
+add_subdirectory( ${THIRD_PARTY_PATH}/imgui/imgui ${CMAKE_SOURCE_DIR}/out/imgui)
 
 target_link_libraries( ${PROJECT_NAME} ${OPENGL_LIBRARIES} glfw glad imgui)
